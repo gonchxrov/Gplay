@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    env_file: .env
+    volumes:
+      - ./backend:/app
+    ports:
+      - '4000:4000'
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    environment:
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./frontend:/app
+    ports:
+      - '3000:3000'
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    env_file: .env
+    volumes:
+      - ./postgres/db_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'

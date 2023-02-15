@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon -L app.js",
+    "migrate": "npx prisma migrate dev",
+    "seed": "npx prisma db seed",
+    "build": "npm run migrate && npm run seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.12.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "prisma": "^3.11.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  }
+}
