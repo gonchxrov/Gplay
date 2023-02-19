@@ -32,7 +32,7 @@ model Game {
   description      String
   price            Float
   discount         Int?
-  photo            String   @default("default-game.jpg")
+  photo            String
   showcase         String?
   releaseDate      DateTime @default(now()) @db.Timestamptz(2)
   hidden           Boolean  @default(false)
