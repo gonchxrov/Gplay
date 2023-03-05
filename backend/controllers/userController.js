@@ -1,5 +1,5 @@
 const ApiError = require('../errors/apiError');
-const jwtService = require('../services/jwtService')
+const tokenService = require('../services/tokenService')
 const passwordService = require('../services/passwordService')
 const { User } = require('../models')
 
@@ -19,7 +19,7 @@ class UserController {
 
       const hashPassword = await passwordService.hash(password)
       const user = await User.create(firstName, lastName, email, hashPassword)
-      const token = jwtService.generateToken(user.id, user.firstName, user.lastName, user.email, user.role)
+      const token = tokenService.generate(user.id, user.firstName, user.lastName, user.email, user.role)
 
       return res.json({token})
     } catch (e) {
@@ -39,14 +39,14 @@ class UserController {
         return next(ApiError.internal('Incorrect password specified'))
     }
     
-    const token = jwtService.generateToken(user.id, user.firstName, user.lastName, user.email, user.role)
+    const token = tokenService.generate(user.id, user.firstName, user.lastName, user.email, user.role)
 
     return res.json({token})
   }
 
   async check(req, res, next) {
     try{
-      const token = jwtService.generateToken(req.user.id, req.user.firstName, req.user.lastName, req.user.email, req.user.role)
+      const token = tokenService.generate(req.user.id, req.user.firstName, req.user.lastName, req.user.email, req.user.role)
       return res.json({token})
     } catch (e) {
       next(ApiError.badRequest(e.message))

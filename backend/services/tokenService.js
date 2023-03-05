@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
-class JwtService {
-    generateToken(id, firstName, lastName, email, role) {
+class TokenService {
+    generate(id, firstName, lastName, email, role) {
         return jwt.sign(
             {id, firstName, lastName, email, role},
             process.env.JWT_SECRET_KEY,
@@ -9,7 +9,7 @@ class JwtService {
         )
     }
 
-    getToken(req) {
+    get(req) {
         const token = req?.headers?.authorization.split(' ')[1] || ''
         if (!token) {
             return res.status(401).json({message: NOT_AUTH_MSG})
@@ -18,10 +18,10 @@ class JwtService {
         return token
     }
 
-    verifyToken(token) {
+    verify(token) {
         return jwt.verify(token, process.env.JWT_SECRET_KEY)
     }
 }
 
 
-module.exports = new JwtService()
+module.exports = new TokenService()

@@ -1,4 +1,4 @@
-const jwtService = require('../services/jwtService')
+const tokenService = require('../services/tokenService')
 
 module.exports = function(role) {
   return function (req, res, next) {
@@ -7,12 +7,12 @@ module.exports = function(role) {
     }
 
     try {
-      const token = jwtService.getToken(req)
+      const token = tokenService.get(req)
       if (!token) {
           return res.status(401).json({message: "Not authorized"})
       }
       
-      const user = jwtService.verifyToken(token)
+      const user = tokenService.verify(token)
       if (user.role !== role) {
           return res.status(403).json({message: "No access"})
       }
