@@ -5,12 +5,6 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 
 function App() {
-  const [author, setAuthor] = React.useState("")
-    
-  React.useEffect(() =>{
-    axios.get('http://localhost:4000/users').then(({ data }) => {setAuthor(`${data[0]?.firstName} ${data[0]?.lastName}`)})
-  })
-
   return (
     <div className="App">
       <header className="App-header">
@@ -57,7 +51,6 @@ function App() {
             React Redux
           </a>
         </span>
-        {author ? <p className="mt-8">Docker created by <span>{author}</span></p> : null}
       </header>
     </div>
   );
