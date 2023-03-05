@@ -11,9 +11,14 @@
   },
   "dependencies": {
     "@prisma/client": "^3.12.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "prisma": "^3.11.0"
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "prisma": "^3.11.0",
+    "uuid": "^9.0.0"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
