@@ -25,7 +25,7 @@ async function createUsers() {
     let count = users?.count || 0
     console.log('Creted users:', count)
   } catch (error) {
-    let errorMessage = error?.message || 'undefined error'
+    let errorMessage = error?.message || 'Undefined error'
     console.error('failed to create users:', errorMessage)
   }
 }
@@ -161,7 +161,7 @@ async function createGames() {
     let count = games?.count || 0
     console.log('Creted games:', count)
   } catch (error) {
-    let errorMessage = error?.message || 'undefined error'
+    let errorMessage = error?.message || 'Undefined error'
     console.error('failed to create games:', errorMessage)
   }
 }

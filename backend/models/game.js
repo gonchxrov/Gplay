@@ -16,7 +16,7 @@ class Game {
 
       return game
     } catch (error) {
-      let errorMessage = error?.message || 'undefined error'
+      let errorMessage = error?.message || 'Undefined error'
       return errorMessage
     }
   }
