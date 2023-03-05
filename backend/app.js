@@ -1,27 +1,27 @@
+require('dotenv').config()
 const express = require('express');
-const dotenv = require('dotenv');
-const { PrismaClient } = require("@prisma/client");
+const fileUpload = require('express-fileupload')
+const router = require('./routes/index')
+const cors = require('cors')
+const path = require('path')
+const errorHandler = require('./middlewares/errorHandlingMiddleware')
 
-const prisma = new PrismaClient();
-const app = express();
-dotenv.config();
+const PORT = process.env.PORT || 4000;
 
-const port = process.env.PORT || 4000;
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(fileUpload({}))
+app.use('/api', router)
+app.use('/img', express.static(path.resolve(__dirname, 'static/img')))
+app.use(errorHandler)
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  next();
-});
+const start = async () => {
+    try {
+        app.listen(PORT, () => console.log(`Server running on port ${PORT}, http://localhost:${PORT}`))
+    } catch (e) {
+        console.log(e)
+    }
+}
 
-app.get('/', async (req, res) => {
-  res.send("It works!");
-});
-
-app.get('/users', async (req, res) => {
-  const user = await prisma.user.findMany();
-  res.json(user);
-});
-
-app.listen(port, () =>
-  console.log(`Server running on port ${port}, http://localhost:${port}`)
-);
+start()
