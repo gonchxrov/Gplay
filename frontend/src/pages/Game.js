@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchGames } from "../http/GameAPI";
-import { GameList } from "../components/GameList";
-const Catalog = () => {
+
+const Game = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -10,10 +10,9 @@ const Catalog = () => {
 
   return (
     <>
-      <h1>Catalog</h1>
-      {games.length ? <GameList games={games} /> : null}
+      <h1>GAME</h1>
     </>
   );
 };
 
-export default Catalog;
+export default Game;

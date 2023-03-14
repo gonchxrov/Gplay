@@ -3,6 +3,7 @@ import Profile from "../pages/Profile";
 import Catalog from "../pages/Catalog";
 import Login from "../pages/Login";
 import SignIn from "../pages/SignIn";
+import Game from "../pages/Game";
 
 export const ROUTE = {
   HOME: "/",
@@ -11,6 +12,7 @@ export const ROUTE = {
   ADMIN: "/admin",
   PROFILE: "/profile",
   CATALOG: "/catalog",
+  GAME: "/game",
 };
 
 export const publicRoutes = [
@@ -29,6 +31,10 @@ export const publicRoutes = [
   {
     path: ROUTE.CATALOG,
     element: <Catalog />,
+  },
+  {
+    path: `${ROUTE.GAME}/:id`,
+    element: <Game />,
   },
 ];
 
