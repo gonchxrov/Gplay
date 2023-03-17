@@ -19,11 +19,11 @@ const Home = () => {
   }, [games]);
   return (
     <>
-      <section class="showcase col-10 mx-auto">
+      <section className="showcase col-10 mx-auto">
         <Showcase games={gamesShowcase} />
       </section>
 
-      <section class="catalog col-10 mx-auto">
+      <section className="catalog col-10 mx-auto">
         <GameSlider games={games} />
       </section>
     </>

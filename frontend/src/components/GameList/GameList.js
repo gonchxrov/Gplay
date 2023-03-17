@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { imgPath } from "../../helpers";
 
 import "./GameList.scss";
 
@@ -9,7 +10,7 @@ export function GameList({ games }) {
   return (
     <ul className="game-list">
       {games.map((game) => (
-        <li className="game">
+        <li key={game.id} className="game">
           <div className="game__image">
             <div onClick={() => navigate(`${ROUTE.GAME}/${game.id}`)}>
               <img
