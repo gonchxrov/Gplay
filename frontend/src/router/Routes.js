@@ -1,9 +1,9 @@
-import Home from "../pages/Home";
-import Profile from "../pages/Profile";
-import Catalog from "../pages/Catalog";
-import Login from "../pages/Login";
-import SignIn from "../pages/SignIn";
-import Game from "../pages/Game";
+import Home from "../pages/Home/Home";
+import Profile from "../pages/Profile/Profile";
+import Catalog from "../pages/Catalog/Catalog";
+import Login from "../pages/Login/Login";
+import SignIn from "../pages/SignIn/SignIn";
+import Game from "../pages/Game/Game";
 
 export const ROUTE = {
   HOME: "/",

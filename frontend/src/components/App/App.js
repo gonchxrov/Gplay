@@ -1,15 +1,16 @@
-import AppRouter from "./router";
+import AppRouter from "../../router";
 import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { NavBar } from "./components/NavBar";
-import { setUser, setIsAuth, unSetUser, selectIsAuth } from "./store";
+import { Header } from "../Header/Header";
+import { Footer } from "../Footer/Footer";
+import { setUser, setIsAuth, unSetUser, selectIsAuth } from "../../store";
 import jwt_decode from "jwt-decode";
+import "./App.scss";
 
 const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-
   useEffect(() => {
     try {
       const token = localStorage.getItem("token") || "";
@@ -35,8 +36,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <Header />
       <AppRouter />
+      <Footer />
     </BrowserRouter>
   );
 };

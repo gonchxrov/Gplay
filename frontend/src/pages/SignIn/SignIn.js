@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button } from "../components/Button";
+import { Button } from "../../components/Button/Button";
 import { Link } from "react-router-dom";
-import { signIn } from "../http/UserAPI";
-import { ROUTE } from "../router";
-import { setUser, setIsAuth } from "../store/User";
+import { signIn } from "../../http/UserAPI";
+import { ROUTE } from "../../router";
+import { setUser, setIsAuth } from "../../store/User";
 
 const SignIn = () => {
   const dispatch = useDispatch();

@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Raleway:wght@400;600&display=swap');
+
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/mixins';
+
+@import 'variables';
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: $gray;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  span {
+      color: $green;
+  }
+}
+
+.text--green {
+  color: $green-dark;
+}
+
+.link,
+.link:visited {
+  margin-top: 15px;
+  transition: color 0.3s;
+  color: $green-dark;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+      color: $green;
+  }
+}
+
+.btn {
+  font-family: Oswald, sans-serif;
+  border-radius: 0;
+  border: 0;
+  padding: 10px 25px;
+  transition: background-color 0.3s;
+
+  &:focus {
+      box-shadow: none;
+  }
+}
+
+.btn--green {
+  color: #000;
+  background-color: $green;
+  border-color: $green;
+
+  &:hover,
+  &:focus {
+      color: #000;
+      background-color: $green-dark;
+  }
+}
+
+.input-wrapper--text {
+  position: relative;
+  background-color: #282b2d;
+  color: white;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: hidden;
+
+  & > input {
+      background-color: #282b2d;
+      color: white;
+      border: none;
+      width: 100%;
+      border-radius: 0;
+      padding: 0.375rem 1.25rem;
+      outline: none;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:focus {
+          background-color: #242729;
+          color: $green-dark;
+          box-shadow: none;
+      }
+  }
+
+  &:before,
+  &:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      background-color: $gray;
+  }
+
+  &:before {
+      right: -10px;
+      top: -10px;
+  }
+
+  &:after {
+      left: -10px;
+      bottom: -10px;
+  }
+}
+
+.input-wrapper--text--focus {
+  &:before {
+      right: -10px;
+      top: -10px;
+  }
+
+  &:after {
+      left: -10px;
+      bottom: -10px;
+  }
+}
+
+.splide {
+  .splide__arrow {
+      background-color: $green;
+      box-shadow: 0 1px 2px rgba(0,0,0,0);
+      transition: border-color, box-shadow 0.4s;
+      &:hover {
+          opacity: 0.7;
+          box-shadow: 0 0 5px $green;
+      }
+  }
+  .splide__pagination__page {
+      background-color: $green-dark;
+
+      &.is-active {
+          background-color: $green;
+          box-shadow: 0 0 5px $green;
+      }
+  }
+}

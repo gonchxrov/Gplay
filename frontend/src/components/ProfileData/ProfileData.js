@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectUser } from "../store/User";
+import { selectUser } from "../../store/User";
 
 export function ProfileData() {
   const user = useSelector(selectUser);

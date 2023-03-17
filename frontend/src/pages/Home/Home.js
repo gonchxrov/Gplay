@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchGames } from "../http/GameAPI";
-import { Showcase } from "../components/Showcase";
-import { GameSlider } from "../components/GameSlider";
+import { fetchGames } from "../../http/GameAPI";
+import { Showcase } from "../../components/Showcase/Showcase";
+import { GameSlider } from "../../components/GameSlider/GameSlider";
 
 import "@splidejs/react-splide/css";
+import "./Home.scss";
 
 const Home = () => {
   const [games, setGames] = useState([]);
@@ -18,9 +19,13 @@ const Home = () => {
   }, [games]);
   return (
     <>
-      <h1>Home</h1>
-      <Showcase games={gamesShowcase} />
-      <GameSlider games={games} />
+      <section class="showcase col-10 mx-auto">
+        <Showcase games={gamesShowcase} />
+      </section>
+
+      <section class="catalog col-10 mx-auto">
+        <GameSlider games={games} />
+      </section>
     </>
   );
 };

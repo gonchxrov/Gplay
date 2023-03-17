@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchGames } from "../http/GameAPI";
+import { fetchGames } from "../../http/GameAPI";
 
 const Game = () => {
   const [games, setGames] = useState([]);

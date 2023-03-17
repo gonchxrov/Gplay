@@ -1,0 +1,105 @@
+@import '../App/variables';
+
+.navbar {
+  .navbar-nav {
+      .nav-item {
+        user-select: none;
+          .nav-link {
+              height: 100%;
+              padding-left: 25px;
+              position: relative;
+              &:hover {
+                  color: $green-dark;
+              }
+
+              &.active {
+                  color: $green;
+              }
+
+              & > i {
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  font-size: 14px;
+                  padding-right: 5px;
+              }
+
+              &.nav-link--name {
+                  cursor: pointer;
+              }
+
+              &.nav-link--logout {
+                  cursor: pointer;
+              }
+              
+              
+
+              &.dropdown-toggle {
+                  height: auto;
+              }
+          }
+      }
+
+      .dropdown-menu {
+          position: absolute;
+          top: 50px;
+          left: 0;
+          display: block;
+          color: #ffffff8c;
+          background-color: #1c1f23;
+          border-radius: 0;
+          padding: 0.5rem 20px;
+
+          .dropdown-item {
+              position: relative;
+              padding-left: 25px;
+              color: rgba(255, 255, 255, 0.55);
+              transition: color 0.3s;
+
+              &:hover,
+              &:focus {
+                  color: $green-dark;
+                  background-color: #1c1f23;
+              }
+
+              &.active {
+                  color: $green;
+                  background-color: #1c1f23;
+              }
+
+              & > i {
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  font-size: 14px;
+                  padding-right: 5px;
+              }
+          }
+
+      }
+  }
+
+  .navbar-toggler {
+      border-radius: 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0);
+      border-color: rgba(23, 166, 73, 0.5);
+      transition: border-color, box-shadow 0.4s;
+      &:hover,
+      &:focus {
+          border-color: rgba(31, 219, 97, 0.4);
+          box-shadow: 0 0 5px $green;
+      }
+  }
+  .input-wrapper--text {
+      &:before,
+      &:after {
+          background-color: $dark-gray;
+      }
+
+      > input:focus {
+          box-shadow: none;
+      }
+  }
+}

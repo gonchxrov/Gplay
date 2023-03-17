@@ -1,13 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { imgPath } from "../helpers";
-import { ROUTE } from "../router";
+import { imgPath } from "../../helpers";
+import { ROUTE } from "../../router";
 
 import "@splidejs/react-splide/css";
+import "./GameSlider.scss";
 
 export function GameSlider({ games }) {
+  const navigate = useNavigate();
+
   return (
     <Splide
+      className="game-list row p-0"
       games={games}
       options={{
         type: "loop",
@@ -19,7 +24,7 @@ export function GameSlider({ games }) {
       }}
     >
       {games.map((game) => (
-        <SplideSlide key={game.id} className="showcase-item">
+        <SplideSlide key={game.id} className="game">
           <div className="game__image">
             <div onClick={() => navigate(`${ROUTE.GAME}/${game.id}`)}>
               <img
@@ -30,13 +35,15 @@ export function GameSlider({ games }) {
           </div>
           <div className="game__text">
             <p className="game__name">
-              <a href="#">{game.title}</a>
+              <span onClick={() => navigate(`${ROUTE.GAME}/${game.id}`)}>
+                {game.title}
+              </span>
             </p>
             <div className="text__footer">
               <p className="game__price">
                 {game.price} <span>$</span>
               </p>
-              <button type="button" className="btn--green">
+              <button type="button" className="btn btn--green">
                 Buy
               </button>
             </div>
