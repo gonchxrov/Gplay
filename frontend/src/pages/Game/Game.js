@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { fetchGames } from "../../http/GameAPI";
+import { Layout } from "../../components/Layout/Layout";
 
 const Game = () => {
-  const [games, setGames] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetchGames().then((data) => setGames(data));
+    setIsLoaded(true);
   }, []);
 
   return (
-    <>
+    <Layout isLoaded={isLoaded}>
       <h1>GAME</h1>
-    </>
+    </Layout>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button } from "../../components/Button/Button";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { signIn } from "../../http/UserAPI";
 import { ROUTE } from "../../router";
 import { setUser, setIsAuth } from "../../store/User";
+import { Layout } from "../../components/Layout/Layout";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,11 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role] = useState("user");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const signInHandle = async () => {
     try {
@@ -31,7 +37,7 @@ const SignIn = () => {
   };
 
   return (
-    <>
+    <Layout isLoaded={isLoaded}>
       <h1>Sign-In</h1>
 
       <form className="d-flex flex-column">
@@ -71,7 +77,7 @@ const SignIn = () => {
           <Button onClick={signInHandle}>Sign-In</Button>
         </div>
       </form>
-    </>
+    </Layout>
   );
 };
 

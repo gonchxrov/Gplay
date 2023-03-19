@@ -9,7 +9,6 @@ export const ROUTE = {
   HOME: "/",
   LOGIN: "/login",
   SIGN_IN: "/sign-in",
-  ADMIN: "/admin",
   PROFILE: "/profile",
   CATALOG: "/catalog",
   GAME: "/game",

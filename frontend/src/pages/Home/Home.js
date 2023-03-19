@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchGames } from "../../http/GameAPI";
 import { Showcase } from "../../components/Showcase/Showcase";
 import { GameSlider } from "../../components/GameSlider/GameSlider";
+import { Layout } from "../../components/Layout/Layout";
 
 import "@splidejs/react-splide/css";
 import "./Home.scss";
@@ -9,24 +10,27 @@ import "./Home.scss";
 const Home = () => {
   const [games, setGames] = useState([]);
   const [gamesShowcase, setGamesShowcase] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     fetchGames().then((data) => setGames(data));
+    setIsLoaded(true);
   }, []);
 
   useEffect(() => {
     setGamesShowcase(games.filter((game) => game.showcase));
   }, [games]);
+
   return (
-    <>
-      <section className="showcase col-10 mx-auto">
+    <Layout isLoaded={isLoaded}>
+      <section>
         <Showcase games={gamesShowcase} />
       </section>
 
-      <section className="catalog col-10 mx-auto">
+      <section>
         <GameSlider games={games} />
       </section>
-    </>
+    </Layout>
   );
 };
 

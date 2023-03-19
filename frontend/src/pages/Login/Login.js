@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button } from "../../components/Button/Button";
@@ -6,12 +6,18 @@ import { Link } from "react-router-dom";
 import { login } from "../../http/UserAPI";
 import { ROUTE } from "../../router";
 import { setUser, setIsAuth } from "../../store/User";
+import { Layout } from "../../components/Layout/Layout";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("user2@gmail.com");
   const [password, setPassword] = useState("admin");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const loginHandle = async () => {
     try {
@@ -27,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <Layout isLoaded={isLoaded}>
       <h1>Login</h1>
 
       <form className="d-flex flex-column">
@@ -55,7 +61,7 @@ const Login = () => {
           <Button onClick={loginHandle}>Login</Button>
         </div>
       </form>
-    </>
+    </Layout>
   );
 };
 
