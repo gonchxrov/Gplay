@@ -2,6 +2,7 @@ import React, { useEffect, useState, componentDidMount } from "react";
 import { fetchGames } from "../../http/GameAPI";
 import { GameList } from "../../components/GameList/GameList";
 import { Layout } from "../../components/Layout/Layout";
+import "./Catalog.scss";
 
 const Catalog = () => {
   const [games, setGames] = useState([]);
@@ -15,8 +16,10 @@ const Catalog = () => {
 
   return (
     <Layout isLoaded={isLoaded}>
-      <h1>Catalog</h1>
-      <GameList games={games} />
+      <section className="section--catalog">
+        <h1>Catalog</h1>
+        <GameList games={games} />
+      </section>
     </Layout>
   );
 };

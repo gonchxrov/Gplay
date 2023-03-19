@@ -23,11 +23,11 @@ const Home = () => {
 
   return (
     <Layout isLoaded={isLoaded}>
-      <section>
+      <section className="section--showcase">
         <Showcase games={gamesShowcase} />
       </section>
 
-      <section>
+      <section className="section--game-slider">
         <GameSlider games={games} />
       </section>
     </Layout>
