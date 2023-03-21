@@ -1,0 +1,35 @@
+@import '../../components/App/variables';
+
+.section--game {
+  .game-block {
+    margin-bottom: 90px;
+
+    .image-wrapper {
+      img{
+        display: block;
+        margin-left: auto;
+        height: 700px !important;
+        border: 1px solid $green;
+        box-shadow: 0 0 5px $green;
+      }
+    }
+
+    .green-text {
+      color: $green;
+      font-family: "Oswald", sans-serif;
+    }
+  
+    p {
+      font-size: 20px;
+  
+      &.price {
+        font-size: 45px;
+      }
+    }
+  
+    .btn {
+      font-size: 30px !important;
+      padding: 10px 80px !important;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, componentDidMount } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchGames } from "../../http/GameAPI";
 import { GameList } from "../../components/GameList/GameList";
 import { Layout } from "../../components/Layout/Layout";
