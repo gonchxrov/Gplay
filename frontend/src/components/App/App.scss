@@ -79,6 +79,21 @@ h1 {
   }
 }
 
+.form--auth {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 200px;
+  
+  a {
+    color: $green;
+
+    &:hover, &:focus {
+      color: $green-dark;
+    }
+  }
+} 
+
 .input-wrapper--text {
   position: relative;
   background-color: #282b2d;

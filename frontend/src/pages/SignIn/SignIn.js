@@ -40,37 +40,42 @@ const SignIn = () => {
     <Layout isLoaded={isLoaded}>
       <h1>Sign-In</h1>
 
-      <form className="d-flex flex-column">
-        <input
-          className="mt-3"
-          placeholder="Enter your first name..."
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
+      <form className="form--auth d-flex flex-column">
+        <div className="input-wrapper--text w-100 mb-3">
+          <input
+            placeholder="Enter your first name..."
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
 
-        <input
-          className="mt-3"
-          placeholder="Enter your last name..."
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
+        <div className="input-wrapper--text w-100 mb-3">
+          <input
+            placeholder="Enter your last name..."
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
 
-        <input
-          className="mt-3"
-          placeholder="Enter your email..."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="input-wrapper--text w-100 mb-3">
+          <input
+            placeholder="Enter your email..."
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-        <input
-          className="mt-3"
-          placeholder="Enter your password..."
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          autoComplete="off"
-        />
-        <div className="d-flex justify-content-between mt-3 pl-3 pr-3">
+        <div className="input-wrapper--text w-100 mb-3">
+          <input
+            placeholder="Enter your password..."
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="d-flex justify-content-between pl-3 pr-3">
           <div>
             <Link to={ROUTE.LOGIN}>I have an account</Link>
           </div>
