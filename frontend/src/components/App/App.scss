@@ -7,6 +7,11 @@
 
 @import 'variables';
 
+*::selection {
+  color: white;
+  background-color: $green;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
   background-color: $gray;

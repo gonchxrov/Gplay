@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Layout } from "../../components/Layout/Layout";
 import { fetchOneGame } from "../../http/GameAPI";
 import { imgPath, format } from "../../helpers";
-import { Route, Link, Routes, useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
+import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
+import { ROUTE } from "../../router/Routes";
 
 import "./Game.scss";
 
@@ -11,6 +13,18 @@ const Game = () => {
   const [game, setGame] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const params = useParams();
+  const location = useLocation();
+
+  const breadcrumbs = [
+    {
+      route: ROUTE.CATALOG,
+      title: "Catalog",
+    },
+    {
+      route: location.pathname,
+      title: game.title,
+    },
+  ];
 
   useEffect(() => {
     fetchOneGame(params.id)
@@ -18,14 +32,10 @@ const Game = () => {
       .finally(() => setIsLoaded(true));
   }, []);
 
-  useEffect(() => {
-    console.log(game);
-  }, [game]);
-
   return (
     <Layout isLoaded={isLoaded}>
       <section className="section--game">
-        <h1>{game.title}</h1>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <div className="game-block col-10 row mx-auto">
           <div className="image-wrapper col-5">
             <img src={`${imgPath}/img/games/main/${game.photo}`} />
