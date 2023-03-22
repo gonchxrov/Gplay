@@ -83,7 +83,7 @@ h1 {
   width: 600px;
   margin: 0 auto;
   margin-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 250px;
   
   a {
     color: $green;
@@ -91,6 +91,11 @@ h1 {
     &:hover, &:focus {
       color: $green-dark;
     }
+  }
+
+  .validation-messages {
+    list-style-type: square;
+    color: red;
   }
 } 
 
