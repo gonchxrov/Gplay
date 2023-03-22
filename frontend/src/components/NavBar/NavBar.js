@@ -5,6 +5,7 @@ import {
   setIsAuth,
   selectIsAdmin,
   unSetUser,
+  unSetPhoto,
   selectIsAuth,
   selectUser,
 } from "../../store/User";
@@ -25,6 +26,7 @@ export function NavBar() {
   const logOut = () => {
     localStorage.clear();
     dispatch(unSetUser());
+    dispatch(unSetPhoto());
     dispatch(setIsAuth(false));
   };
 
@@ -86,9 +88,7 @@ export function NavBar() {
                         className="nav-link nav-link--name dropdown-toggle"
                       >
                         <i className="fas fa-user"></i>
-                        <span>
-                          {user.firstName} {user.lastName}
-                        </span>
+                        <span>{user.firstName}</span>
                       </span>
                       {showDropdown ? (
                         <ul className="dropdown-menu">

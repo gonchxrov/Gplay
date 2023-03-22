@@ -5,7 +5,7 @@ import { Button } from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { login } from "../../http/UserAPI";
 import { ROUTE } from "../../router";
-import { setUser, setIsAuth } from "../../store/User";
+import { setUser, setPhoto, setIsAuth } from "../../store/User";
 import { Layout } from "../../components/Layout/Layout";
 import { checkEmail } from "../../helpers";
 
@@ -26,9 +26,13 @@ const Login = () => {
     if (!validationMessages.length) {
       try {
         const { email, password } = form;
-        const { firstName, lastName, role } = await login(email, password);
+        const { firstName, lastName, role, photo } = await login(
+          email,
+          password
+        );
 
         dispatch(setUser({ firstName, lastName, email, role }));
+        dispatch(setPhoto({ photo }));
         dispatch(setIsAuth(true));
 
         navigate(ROUTE.PROFILE);

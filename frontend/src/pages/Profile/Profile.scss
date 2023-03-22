@@ -1,14 +1,14 @@
 @import '../../components/App/variables';
 
-.section--game {
-  .game-block {
+.section--profile {
+  .profile-block {
     margin-bottom: 90px;
 
     .image-wrapper {
       img{
         display: block;
-        margin-left: 55px;
-        height: 700px !important;
+        margin-left: auto;
+        height: 360px !important;
         border: 1px solid $green;
         box-shadow: 0 0 5px $green;
       }

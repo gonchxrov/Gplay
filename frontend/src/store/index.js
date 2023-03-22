@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer, {
   setIsAuth,
   setUser,
+  setPhoto,
   unSetUser,
+  unSetPhoto,
   selectIsAuth,
 } from "./User";
 
-export { setIsAuth, setUser, unSetUser, selectIsAuth };
+export { setIsAuth, setUser, setPhoto, unSetUser, unSetPhoto, selectIsAuth };
 
 export default configureStore({
   reducer: {

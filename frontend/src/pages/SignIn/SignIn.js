@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { signIn } from "../../http/UserAPI";
 import { ROUTE } from "../../router";
 import { checkEmail } from "../../helpers";
-import { setUser, setIsAuth } from "../../store/User";
+import { setUser, setIsAuth, setPhoto } from "../../store/User";
 import { Layout } from "../../components/Layout/Layout";
 
 const SignIn = () => {
@@ -27,10 +27,12 @@ const SignIn = () => {
     if (!validationMessages.length) {
       try {
         const { firstName, lastName, email, password } = form;
+        const photo = "default-user.jpg";
         const role = "user";
 
         await signIn(firstName, lastName, email, password);
 
+        dispatch(setPhoto({ photo }));
         dispatch(setUser({ firstName, lastName, email, role }));
         dispatch(setIsAuth(true));
 
