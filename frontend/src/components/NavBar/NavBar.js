@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -15,13 +15,13 @@ import { Search } from "../Search/Search";
 import "./NavBar.scss";
 
 export function NavBar() {
+  const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const isAdmin = useSelector(selectIsAdmin);
   const user = useSelector(selectUser);
+  const ref = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMobileDropdown, setShowMobileDropdown] = useState(false);
-
-  const dispatch = useDispatch();
 
   const logOut = () => {
     localStorage.clear();
@@ -29,6 +29,27 @@ export function NavBar() {
     dispatch(unSetPhoto());
     dispatch(setIsAuth(false));
   };
+
+  const handleClickOutside = (event) => {
+    const clickedOnDropdown =
+      event.target.parentNode.classList.contains("dropdown-toggle") ||
+      event.target.parentNode.classList.contains("dropdown");
+
+    if (
+      ref.current &&
+      !ref.current.contains(event.target) &&
+      !clickedOnDropdown
+    ) {
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  });
 
   return (
     <nav className="navbar navbar-dark d-flex flex-wrap align-items-center justify-content-start pt-xl-2">
@@ -91,10 +112,11 @@ export function NavBar() {
                         <span>{user.firstName}</span>
                       </span>
                       {showDropdown ? (
-                        <ul className="dropdown-menu">
+                        <ul ref={ref} className="dropdown-menu">
                           <li>
                             <Link
                               className="dropdown-item nav-link nav-link--profile"
+                              onClick={() => setShowDropdown(false)}
                               to={ROUTE.PROFILE}
                             >
                               <i className="fas fa-id-card-alt"></i>Profile
@@ -103,6 +125,7 @@ export function NavBar() {
                           <li>
                             <Link
                               className="dropdown-item nav-link nav-link--basket"
+                              onClick={() => setShowDropdown(false)}
                               to={ROUTE.PROFILE}
                             >
                               <i className="fas fa-shopping-cart"></i>Basket
@@ -111,7 +134,10 @@ export function NavBar() {
                           <li>
                             <span
                               className="dropdown-item nav-link nav-link--logout"
-                              onClick={logOut}
+                              onClick={() => {
+                                setShowDropdown(false);
+                                logOut();
+                              }}
                             >
                               <i className="fas fa-sign-out-alt"></i>Logout
                             </span>
