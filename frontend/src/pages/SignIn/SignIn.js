@@ -15,11 +15,6 @@ const SignIn = () => {
 
   const [form, setForm] = useState({});
   const [validationMessages, setValidationMessages] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role] = useState("user");
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -32,6 +27,8 @@ const SignIn = () => {
     if (!validationMessages.length) {
       try {
         const { firstName, lastName, email, password } = form;
+        const role = "user";
+
         await signIn(firstName, lastName, email, password);
 
         dispatch(setUser({ firstName, lastName, email, role }));
