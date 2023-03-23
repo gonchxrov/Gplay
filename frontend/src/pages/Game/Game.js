@@ -36,7 +36,7 @@ const Game = () => {
     <Layout isLoaded={isLoaded}>
       <section className="section--game">
         <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <div className="game-block col-10 row mx-auto">
+        <div className="game-block row mx-auto">
           <div className="image-wrapper col-5">
             <img src={`${imgPath}/img/games/main/${game.photo}`} />
           </div>

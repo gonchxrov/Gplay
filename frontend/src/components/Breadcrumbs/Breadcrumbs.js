@@ -5,7 +5,7 @@ import "./Breadcrumbs.scss";
 
 export function Breadcrumbs({ breadcrumbs }) {
   return (
-    <ul className="breadcrumbs col-9 mx-auto">
+    <ul className="breadcrumbs mx-auto">
       {breadcrumbs.map((breadcrumb) => (
         <li className="breadcrumb" key={breadcrumb.title}>
           <Link to={breadcrumb.route}>{breadcrumb.title}</Link>

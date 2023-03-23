@@ -5,9 +5,9 @@
     margin-bottom: 90px;
 
     .image-wrapper {
+      padding: 0;
       img{
         display: block;
-        margin-left: 55px;
         height: 700px !important;
         border: 1px solid $green;
         box-shadow: 0 0 5px $green;

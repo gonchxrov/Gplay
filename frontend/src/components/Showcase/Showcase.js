@@ -5,8 +5,11 @@ import { ROUTE } from "../../router";
 
 import "@splidejs/react-splide/css";
 import "./Showcase.scss";
+import { useNavigate } from "react-router-dom";
 
 export function Showcase({ games }) {
+  const navigate = useNavigate();
+
   return (
     <Splide
       className="showcase-list"

@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="footer bg-dark">
-      <nav className="navbar navbar-dark container-fluid container-xl pt-xl-2">
+      <nav className="navbar navbar-dark pt-2">
         <div className="nav-footer col mt-2 mb-4">
           <span
             onClick={() => navigate("/")}
@@ -24,7 +24,7 @@ export function Footer() {
 
         <div className="navbar-main row w-100 mx-auto">
           <div className="row">
-            <div className="navbar-link mb-3 col-sm col-md-5 col-lg-4">
+            <div className="navbar-link mb-3 col-4">
               <h2>Navigation</h2>
               <ul className="navbar-nav ps-1">
                 <li className="nav-item">
@@ -58,7 +58,7 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="navbar-partners col-sm col-md-5 col-md-4">
+            <div className="navbar-partners col-4">
               <h2>Partners</h2>
               <ul className="navbar-nav ps-1">
                 <li className="nav-item">

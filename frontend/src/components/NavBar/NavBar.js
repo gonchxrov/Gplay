@@ -52,29 +52,19 @@ export function NavBar() {
   });
 
   return (
-    <nav className="navbar navbar-dark d-flex flex-wrap align-items-center justify-content-start pt-xl-2">
-      <div className="nav-header col col-xl-1 d-flex align-items-center justify-content-between my-2 my-xl-0">
+    <nav className="navbar navbar-dark d-flex flex-wrap align-items-center justify-content-start pt-2">
+      <div className="nav-header col-1 d-flex align-items-center justify-content-between">
         <Link to={ROUTE.HOME} className="text-white text-decoration-none">
           <h2 className="logo m-0">
             <span>G</span>-Play
           </h2>
         </Link>
-        <button
-          onClick={() => setShowMobileDropdown(!showMobileDropdown)}
-          className="navbar-toggler d-xl-none"
-          type="button"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
       </div>
 
-      <div
-        className={`navbar-main row col-xl w-100 mx-auto d-xl-block  ${
-          !showMobileDropdown ? "collapse" : ""
-        }`}
-      >
+      <div className="navbar-main row col w-100 mx-auto d-block">
         <div className="row">
-          <ul className="navbar-nav col-xl-6 offset-xl-2 me-auto mb-3 mb-xl-0 w-xl-100 d-xl-flex flex-xl-row justify-content-xl-between order-1 order-xl-2">
+          <Search />
+          <ul className="navbar-nav col-7 ms-auto mb-0 d-flex flex-row justify-content-between">
             <li className="nav-item">
               <Link className="nav-link nav-link--home" to={ROUTE.HOME}>
                 <i className="fas fa-home"></i>Home
@@ -160,7 +150,6 @@ export function NavBar() {
               );
             })()}
           </ul>
-          <Search />
         </div>
       </div>
     </nav>

@@ -5,7 +5,7 @@ import "./Header.scss";
 export function Header() {
   return (
     <header className="header mb-5 bg-dark">
-      <div className="container-fluid container-xl">
+      <div>
         <NavBar />
       </div>
     </header>
