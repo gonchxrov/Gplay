@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { imgPath } from "../../helpers";
 import { ROUTE } from "../../router";
+import { ButtonBuy } from "../ButtonBuy/ButtonBuy";
 
 import "@splidejs/react-splide/css";
 import "./GameItem.scss";
@@ -29,9 +30,7 @@ export function GameItem({ game }) {
           <p className="game__price">
             {game.price} <span>$</span>
           </p>
-          <button type="button" className="btn btn--green">
-            Buy
-          </button>
+          <ButtonBuy game={game} />
         </div>
       </div>
     </div>

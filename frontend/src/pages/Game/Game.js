@@ -3,7 +3,7 @@ import { Layout } from "../../components/Layout/Layout";
 import { fetchOneGame } from "../../http/GameAPI";
 import { imgPath, format } from "../../helpers";
 import { useParams, useLocation } from "react-router-dom";
-import { Button } from "../../components/Button/Button";
+import { ButtonBuy } from "../../components/ButtonBuy/ButtonBuy";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { ROUTE } from "../../router/Routes";
 
@@ -55,7 +55,7 @@ const Game = () => {
             <p className="price">
               <span className="green-text">Price:</span> {game.price} €
             </p>
-            <Button>Buy</Button>
+            <ButtonBuy game={game} />
           </div>
         </div>
       </section>

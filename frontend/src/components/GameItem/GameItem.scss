@@ -5,12 +5,15 @@
   z-index: 1;
   width: 200px;
   padding: 0;
+  margin: 20px 10px !important;
   border: 1px solid $green;
   box-shadow: 0 0 5px $green;
-  transition: box-shadow 0.2s;
+  transform: scale(1);
+  transition: box-shadow 0.2s, transform 0.5s;
   overflow: hidden;
   
   &:hover {
+    transform: scale(1.05);
     box-shadow: 0 0 10px $green;
     .game__name {
       color: $green;
@@ -28,7 +31,7 @@
     justify-content: center;
     align-items: flex-start;
     background-color: $gray;
-    height: 245px;
+    height: 255px;
     cursor: pointer;
 
     img {
@@ -90,7 +93,8 @@
       justify-content: space-between;
       order: 1;
       .btn--green {
-        padding: 0 25px;
+        padding: 0 20px;
+        min-width: 80px;
       }
     }
     .game__price {

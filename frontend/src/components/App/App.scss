@@ -84,9 +84,10 @@ h1 {
   border-color: $green;
 
   &:hover,
-  &:focus {
-      color: #000;
-      background-color: $green-dark;
+  &:focus,
+  &:active {
+      color: #000 !important;
+      background-color: $green-dark !important;
   }
 }
 

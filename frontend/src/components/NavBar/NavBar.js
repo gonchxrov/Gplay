@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import {
   setIsAuth,
   selectIsAdmin,
+  unSetCart,
   unSetUser,
   unSetPhoto,
   selectIsAuth,
   selectUser,
-} from "../../store/User";
+} from "../../store";
 import { ROUTE } from "../../router";
 import { Search } from "../Search/Search";
 
@@ -21,10 +22,10 @@ export function NavBar() {
   const user = useSelector(selectUser);
   const ref = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [showMobileDropdown, setShowMobileDropdown] = useState(false);
 
   const logOut = () => {
     localStorage.clear();
+    dispatch(unSetCart());
     dispatch(unSetUser());
     dispatch(unSetPhoto());
     dispatch(setIsAuth(false));
@@ -114,11 +115,11 @@ export function NavBar() {
                           </li>
                           <li>
                             <Link
-                              className="dropdown-item nav-link nav-link--basket"
+                              className="dropdown-item nav-link nav-link--cart"
                               onClick={() => setShowDropdown(false)}
-                              to={ROUTE.PROFILE}
+                              to={ROUTE.CART}
                             >
-                              <i className="fas fa-shopping-cart"></i>Basket
+                              <i className="fas fa-shopping-cart"></i>Cart
                             </Link>
                           </li>
                           <li>

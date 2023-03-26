@@ -10,6 +10,7 @@ import {
   setIsAuth,
   unSetUser,
   unSetPhoto,
+  setCart,
   selectIsAuth,
 } from "../../store";
 import jwt_decode from "jwt-decode";
@@ -18,9 +19,13 @@ import "./App.scss";
 const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+
   useEffect(() => {
     try {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
       const token = localStorage.getItem("token") || "";
+
+      // Save user data after refresh
       if (token && !isAuth) {
         const { firstName, lastName, email, photo, role } = jwt_decode(token);
         dispatch(
@@ -37,6 +42,15 @@ const App = () => {
           })
         );
         dispatch(setIsAuth(true));
+      }
+
+      // Save cart data after refresh
+      if (cart) {
+        dispatch(
+          setCart({
+            cart,
+          })
+        );
       }
     } catch (error) {
       localStorage.clear();
