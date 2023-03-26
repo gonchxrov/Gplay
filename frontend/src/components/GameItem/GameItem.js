@@ -28,7 +28,7 @@ export function GameItem({ game }) {
         </p>
         <div className="text__footer">
           <p className="game__price">
-            {game.price} <span>$</span>
+            {game.price} <span>€</span>
           </p>
           <ButtonBuy game={game} />
         </div>

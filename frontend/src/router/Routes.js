@@ -37,15 +37,15 @@ export const publicRoutes = [
     path: `${ROUTE.GAME}/:id`,
     element: <Game />,
   },
-  {
-    path: ROUTE.CART,
-    element: <Cart />,
-  },
 ];
 
 export const authRoutes = [
   {
     path: ROUTE.PROFILE,
     element: <Profile />,
+  },
+  {
+    path: ROUTE.CART,
+    element: <Cart />,
   },
 ];

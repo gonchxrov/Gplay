@@ -30,8 +30,6 @@ export function ButtonBuy({ game }) {
   }, [game.id, IsAuth]);
 
   const handleClick = () => {
-    console.log(IsAuth);
-
     if (IsAuth) {
       if (Boolean(cart.find((item) => item.game.id === game.id))) {
         setButtonText(initialState);
