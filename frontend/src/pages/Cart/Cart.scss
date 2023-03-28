@@ -1,19 +1,198 @@
+@import '../../components/App/variables';
+
 .section--cart {
+  .oops-block {
+    h2 {
+      text-align: center;
+      margin-bottom: 500px;
+    }
+  }
+
   .cart-list {
     list-style: none;
     margin: 0;
     padding: 0;
 
     .cart-item {
+      position: relative;
       display: flex;
-      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
+      background-color: $dark-gray;
+      padding: 15px;
       margin-bottom: 15px;
+      font-size: 18px;
       overflow: hidden;
 
-      .cart-item__image {
-        height: 100px;
+      &:before,
+      &:after {
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          transform: rotate(45deg);
+          background-color: $gray;
       }
+
+      &:before {
+          right: -15px;
+          top: -15px;
+      }
+    
+      &:after {
+          left: -15px;
+          bottom: -15px;
+      }
+
+      .cart-item__image {
+        margin-left: 70px;
+        margin-right: 70px;
+        img {
+          width: 75px;
+        }
+      }
+      
+      .cart-item__name {
+        width: 300px;
+        margin-right: 50px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        .link {
+          text-decoration: none;
+        }
+      }
+
+      .cart-item__price {
+        width: 200px;
+      }
+      
+      .cart-item__amount {
+        width: 300px;
+
+        .btn-dec {
+          font-size: 0;
+          .icon {
+            height: 20px;
+            width: 20px;
+            position: relative;
+            cursor: pointer;
+  
+            &:before {
+              content: '';
+              position: absolute;
+              display: block;
+              height: 20px;
+              width: 3px;
+              background-color: $green-dark;
+            }
+  
+            &:hover {
+              &:before {
+                background-color: $green;
+              }
+            }
+  
+            &:before {
+              transform: translateX(10px) rotate(90deg);
+            }
+            
+          }
+        }
+
+        .btn-inc {
+          font-size: 0;
+          .icon {
+            height: 20px;
+            width: 20px;
+            position: relative;
+            cursor: pointer;
+  
+            &:before, &:after {
+              content: '';
+              position: absolute;
+              display: block;
+              height: 20px;
+              width: 3px;
+              background-color: $green-dark;
+            }
+  
+            &:hover {
+              &:before, &:after {
+                background-color: $green;
+              }
+            }
+  
+            &:before {
+              transform: translateX(10px) rotate(90deg);
+            }
+  
+            &:after {
+              transform: translateX(10px);
+            }
+            
+          }
+        }
+      }
+
+      .cart-item__delete {
+        font-size: 0;
+        .icon {
+          height: 20px;
+          width: 20px;
+          position: relative;
+          cursor: pointer;
+
+          &:before, &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 20px;
+            width: 3px;
+            background-color: darkred;
+          }
+
+          &:hover {
+            &:before, &:after {
+              background-color: red;
+            }
+          }
+
+          &:before {
+            transform: translateX(10px) rotate(45deg);
+          }
+
+          &:after {
+            transform: translateX(10px) rotate(-45deg);
+          }
+          
+        }
+      }
+    }
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+
+    .order-wrapper {
+      font-family: "Oswald", sans-serif;
+      font-size: 30px;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+
+      .text {
+        margin: 0;
+        margin-right: 10px;
+      }
+    }
+
+    .btn--green {
+      margin-left: auto;
     }
   }
 }

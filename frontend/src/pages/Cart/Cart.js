@@ -75,7 +75,7 @@ const Cart = () => {
                     </Link>
                   </div>
                   <div className="cart-item__name">
-                    <Link to={`${ROUTE.GAME}/${item.game.id}`}>
+                    <Link className="link" to={`${ROUTE.GAME}/${item.game.id}`}>
                       {item.game.title}
                     </Link>
                   </div>
@@ -86,30 +86,31 @@ const Cart = () => {
                     <button
                       onClick={() => handleDecrement(item.game)}
                       type="button"
-                      className="btn shadow-none"
+                      className="btn btn-dec shadow-none"
                     >
-                      <i className="fa fa-minus"></i>
+                      <div className="icon"></div>
                     </button>
                     <span>{item.quantity}</span>
                     <button
                       onClick={() => handleIncrement(item.game)}
                       type="button"
-                      className="btn shadow-none"
+                      className="btn btn-inc shadow-none"
                     >
-                      <i className="fa fa-plus"></i>
+                      <div className="icon"></div>
                     </button>
                   </div>
-                  <div className="cart-item__delete">
-                    <div onClick={() => handleRemove(item.game)}>
-                      <i className="fa fa-times" aria-hidden="true"></i>
-                    </div>
+                  <div
+                    className="cart-item__delete"
+                    onClick={() => handleRemove(item.game)}
+                  >
+                    <div className="icon"></div>
                   </div>
                 </li>
               ))}
             </ul>
             <div className="order">
               <div className="order-wrapper">
-                <p>Total: </p>
+                <p className="text">Total: </p>
                 <b>{totalPrice} €</b>
               </div>
               <button className="btn btn--green">Proceed to checkout</button>
