@@ -21,13 +21,20 @@ class Purchase {
   }
 
   async getAll() {
-    const purchases = await prisma.purchase.findMany();
+    const purchases = await prisma.purchase.findMany({
+      include: {
+        game: true,
+      },
+    });
     return purchases;
   }
 
   async getAllByUserId(userId) {
     const purchases = await prisma.purchase.findMany({
       where: { userId },
+      include: {
+        game: true,
+      },
     });
     return purchases;
   }
