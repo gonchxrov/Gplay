@@ -83,6 +83,7 @@ model GameScreenshot {
 }
 
 model Purchase {
+  id        Int      @id @default(autoincrement())
   userId    Int
   gameId    Int
   quantity  Int
@@ -90,8 +91,6 @@ model Purchase {
   createdAt DateTime @default(now()) @db.Timestamptz(2)
   user      User     @relation(fields: [userId], references: [id])
   game      Game     @relation(fields: [gameId], references: [id])
-
-  @@id([gameId, userId])
 }
 
 model Wishlist {
