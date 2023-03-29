@@ -22,6 +22,11 @@ class Purchase {
 
   async getAll() {
     const purchases = await prisma.purchase.findMany({
+      orderBy: [
+        {
+          createdAt: "desc",
+        },
+      ],
       include: {
         game: true,
       },
@@ -32,6 +37,11 @@ class Purchase {
   async getAllByUserId(userId) {
     const purchases = await prisma.purchase.findMany({
       where: { userId },
+      orderBy: [
+        {
+          createdAt: "desc",
+        },
+      ],
       include: {
         game: true,
       },
