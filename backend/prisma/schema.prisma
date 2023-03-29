@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "linux-musl"]
 }
 
@@ -12,86 +12,93 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
-  firstName    String
-  lastName     String
-  email        String    @unique
-  password     String
-  photo        String    @default("default-user.jpg")
-  role         String    @default("user")
-  hidden       Boolean   @default(false)
-  createdAt    DateTime  @default(now()) @db.Timestamptz(2)
-  updatedAt    DateTime  @updatedAt @db.Timestamptz(2)
-  purchase     Purchase[]
-  wishlist     Wishlist[]
+  id        Int        @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String     @unique
+  password  String
+  photo     String     @default("default-user.jpg")
+  role      String     @default("user")
+  hidden    Boolean    @default(false)
+  createdAt DateTime   @default(now()) @db.Timestamptz(2)
+  updatedAt DateTime   @updatedAt @db.Timestamptz(2)
+  purchase  Purchase[]
+  wishlist  Wishlist[]
 }
 
 model Game {
-  id               Int      @id @default(autoincrement())
-  title            String
-  description      String
-  price            Float
-  discount         Int?
-  photo            String
-  showcase         String?
-  releaseDate      DateTime @default(now()) @db.Timestamptz(2)
-  hidden           Boolean  @default(false)
-  genre            GenreOnGame[]
-  category         CategoryOnGame[]
-  gameScreenshot   GameScreenshot[]
-  purchase         Purchase[]
-  wishlist         Wishlist[]
+  id             Int              @id @default(autoincrement())
+  title          String
+  description    String
+  price          Float
+  discount       Int?
+  photo          String
+  showcase       String?
+  releaseDate    DateTime         @default(now()) @db.Timestamptz(2)
+  hidden         Boolean          @default(false)
+  genre          GenreOnGame[]
+  category       CategoryOnGame[]
+  gameScreenshot GameScreenshot[]
+  purchase       Purchase[]
+  wishlist       Wishlist[]
 }
 
 model Genre {
-  id               Int     @id @default(autoincrement())
-  title            String
-  photo            String
-  game             GenreOnGame[]
+  id    Int           @id @default(autoincrement())
+  title String
+  photo String
+  game  GenreOnGame[]
 }
 
 model GenreOnGame {
-  gameId           Int
-  genreId          Int
-  game             Game     @relation(fields: [gameId], references: [id])
-  genre            Genre    @relation(fields: [genreId], references: [id])
+  gameId  Int
+  genreId Int
+  game    Game  @relation(fields: [gameId], references: [id])
+  genre   Genre @relation(fields: [genreId], references: [id])
+
   @@id([gameId, genreId])
 }
 
 model Category {
-  id               Int     @id @default(autoincrement())
-  title            String
-  photo            String
-  game             CategoryOnGame[]
+  id    Int              @id @default(autoincrement())
+  title String
+  photo String
+  game  CategoryOnGame[]
 }
 
 model CategoryOnGame {
-  gameId           Int
-  categoryId       Int
-  game             Game        @relation(fields: [gameId], references: [id])
-  category         Category    @relation(fields: [categoryId], references: [id])
+  gameId     Int
+  categoryId Int
+  game       Game     @relation(fields: [gameId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id])
+
   @@id([gameId, categoryId])
 }
 
 model GameScreenshot {
-  id               Int       @id @default(autoincrement())
-  gameId           Int    
-  photo            String
-  game             Game      @relation(fields: [gameId], references: [id])
+  id     Int    @id @default(autoincrement())
+  gameId Int
+  photo  String
+  game   Game   @relation(fields: [gameId], references: [id])
 }
 
 model Purchase {
-  userId           Int    
-  gameId           Int    
-  user             User      @relation(fields: [userId], references: [id])
-  game             Game      @relation(fields: [gameId], references: [id])
+  userId    Int
+  gameId    Int
+  quantity  Int
+  price     Float
+  createdAt DateTime @default(now()) @db.Timestamptz(2)
+  user      User     @relation(fields: [userId], references: [id])
+  game      Game     @relation(fields: [gameId], references: [id])
+
   @@id([gameId, userId])
 }
 
 model Wishlist {
-  userId           Int    
-  gameId           Int    
-  user             User      @relation(fields: [userId], references: [id])
-  game             Game      @relation(fields: [gameId], references: [id])
+  userId Int
+  gameId Int
+  user   User @relation(fields: [userId], references: [id])
+  game   Game @relation(fields: [gameId], references: [id])
+
   @@id([gameId, userId])
 }
