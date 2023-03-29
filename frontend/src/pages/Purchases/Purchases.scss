@@ -1,0 +1,103 @@
+@import '../../components/App/variables';
+
+.section--purchases {
+
+  .purchases-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 100px;
+
+    .purchase-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: $dark-gray;
+      padding: 15px;
+      margin-bottom: 15px;
+      font-size: 18px;
+      overflow: hidden;
+
+      &:before,
+      &:after {
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          transform: rotate(45deg);
+          background-color: $gray;
+      }
+
+      &:before {
+          right: -15px;
+          top: -15px;
+      }
+    
+      &:after {
+          left: -15px;
+          bottom: -15px;
+      }
+
+      .purchase-item__image {
+        margin-left: 70px;
+        margin-right: 70px;
+        img {
+          width: 75px;
+        }
+      }
+      
+      .purchase-item__name {
+        width: 300px;
+        margin-right: 50px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        .link {
+          text-decoration: none;
+        }
+      }
+
+      .purchase-item__price {
+        width: 250px;
+      }
+      
+      .purchase-item__quantity {
+        width: 150px;
+      }
+
+      .purchase-item__date {
+        .icon {
+          height: 20px;
+          width: 20px;
+          position: relative;
+          cursor: pointer;
+
+          &:before, &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 20px;
+            width: 3px;
+            background-color: darkred;
+          }
+
+          &:hover {
+            &:before, &:after {
+              background-color: red;
+            }
+          }
+
+          &:before {
+            transform: translateX(10px) rotate(45deg);
+          }
+
+          &:after {
+            transform: translateX(10px) rotate(-45deg);
+          }
+          
+        }
+      }
+    }
+  }
+}

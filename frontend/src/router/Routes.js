@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import SignIn from "../pages/SignIn/SignIn";
 import Game from "../pages/Game/Game";
 import Cart from "../pages/Cart/Cart";
+import Purchases from "../pages/Purchases/Purchases";
 
 export const ROUTE = {
   HOME: "/",
@@ -14,6 +15,7 @@ export const ROUTE = {
   CATALOG: "/catalog",
   GAME: "/game",
   CART: "/cart",
+  PURCHASES: "/purchases",
 };
 
 export const publicRoutes = [
@@ -47,5 +49,9 @@ export const authRoutes = [
   {
     path: ROUTE.CART,
     element: <Cart />,
+  },
+  {
+    path: ROUTE.PURCHASES,
+    element: <Purchases />,
   },
 ];

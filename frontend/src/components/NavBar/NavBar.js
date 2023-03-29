@@ -73,7 +73,7 @@ export function NavBar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link nav-link--catalog" to={ROUTE.CATALOG}>
-                <i className="fas fa-list"></i>Catalog
+                <i className="fas fa-bars"></i>Catalog
               </Link>
             </li>
             <li className="nav-item">
@@ -117,9 +117,18 @@ export function NavBar() {
                             <Link
                               className="dropdown-item nav-link nav-link--cart"
                               onClick={() => setShowDropdown(false)}
+                              to={ROUTE.PURCHASES}
+                            >
+                              <i className="fas fa-shopping-cart"></i>Purchases
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              className="dropdown-item nav-link nav-link--cart"
+                              onClick={() => setShowDropdown(false)}
                               to={ROUTE.CART}
                             >
-                              <i className="fas fa-shopping-cart"></i>Cart
+                              <i className="fas fa-shopping-basket"></i>Cart
                             </Link>
                           </li>
                           <li>
