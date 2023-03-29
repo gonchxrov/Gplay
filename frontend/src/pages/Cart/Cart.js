@@ -117,7 +117,7 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <div className="oops-block" v-else>
+          <div className="oops-block">
             <h2>Cart is empty!</h2>
           </div>
         )}
