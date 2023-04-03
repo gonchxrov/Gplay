@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import {
+  unSetCart,
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
   selectCart,
+  selectUser,
 } from "../../store";
+import { createPurchase } from "../../http/PurchaseAPI";
 import { ROUTE } from "../../router";
 import { imgPath } from "../../helpers";
 
@@ -17,7 +21,25 @@ const Cart = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const cart = useSelector(selectCart);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const buy = () => {
+    cart.map((item) => {
+      createPurchase({
+        userId: user.id,
+        gameId: item.game.id,
+        price: item.game.price,
+        quantity: item.quantity,
+      });
+    });
+
+    localStorage.setItem("cart", "");
+    dispatch(unSetCart());
+
+    navigate(ROUTE.HOME);
+  };
 
   useEffect(() => {
     setIsLoaded(true);
@@ -113,7 +135,9 @@ const Cart = () => {
                 <p className="text">Total: </p>
                 <b>{totalPrice} €</b>
               </div>
-              <button className="btn btn--green">Proceed to checkout</button>
+              <button onClick={buy} type="button" className="btn btn--green">
+                Proceed to checkout
+              </button>
             </div>
           </div>
         ) : (

@@ -30,10 +30,10 @@ const SignIn = () => {
         const photo = "default-user.jpg";
         const role = "user";
 
-        await signIn(firstName, lastName, email, password);
+        const { id } = await signIn(firstName, lastName, email, password);
 
         dispatch(setPhoto({ photo }));
-        dispatch(setUser({ firstName, lastName, email, role }));
+        dispatch(setUser({ id, firstName, lastName, email, role }));
         dispatch(setIsAuth(true));
 
         navigate(ROUTE.PROFILE);

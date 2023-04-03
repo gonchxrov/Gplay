@@ -27,9 +27,11 @@ const App = () => {
 
       // Save user data after refresh
       if (token && !isAuth) {
-        const { firstName, lastName, email, photo, role } = jwt_decode(token);
+        const { id, firstName, lastName, email, photo, role } =
+          jwt_decode(token);
         dispatch(
           setUser({
+            id,
             firstName,
             lastName,
             email,

@@ -4,6 +4,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState: {
     isAuth: false,
+    id: 0,
     firstName: "",
     lastName: "",
     email: "",
@@ -15,6 +16,7 @@ export const userSlice = createSlice({
       state.isAuth = action.payload;
     },
     setUser: (state, action) => {
+      state.id = action.payload.id;
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;
@@ -27,6 +29,7 @@ export const userSlice = createSlice({
       state.photo = "";
     },
     unSetUser: (state) => {
+      state.id = 0;
       state.firstName = "";
       state.lastName = "";
       state.email = "";
@@ -40,6 +43,7 @@ export const { setIsAuth, setUser, setPhoto, unSetUser, unSetPhoto } =
 
 export const selectUser = (state) => {
   return {
+    id: state.user.id,
     firstName: state.user.firstName,
     lastName: state.user.lastName,
     email: state.user.email,

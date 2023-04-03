@@ -26,12 +26,12 @@ const Login = () => {
     if (!validationMessages.length) {
       try {
         const { email, password } = form;
-        const { firstName, lastName, role, photo } = await login(
+        const { id, firstName, lastName, role, photo } = await login(
           email,
           password
         );
 
-        dispatch(setUser({ firstName, lastName, email, role }));
+        dispatch(setUser({ id, firstName, lastName, email, role }));
         dispatch(setPhoto({ photo }));
         dispatch(setIsAuth(true));
 
