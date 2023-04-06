@@ -28,6 +28,19 @@ class GameController {
   }
 
   async getAll(req, res) {
+    const page = req.query.page;
+    const count = req.query.count;
+
+    if (count) {
+      const count = await Game.getCount();
+      return res.json(count);
+    }
+
+    if (page) {
+      const games = await Game.getAllByPage(page);
+      return res.json(games);
+    }
+
     const games = await Game.getAll();
     return res.json(games);
   }

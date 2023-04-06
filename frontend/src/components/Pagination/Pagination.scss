@@ -1,0 +1,42 @@
+@import '../App/variables';
+
+.pagination-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .pagination {
+    margin: 0 auto;
+    user-select: none;
+
+    .pagination-item {
+      font-family: 'Oswald', sans-serif;
+      background-color: $green-dark;
+      color: black;
+      padding: 5px 12px;
+      margin-right: 10px;
+      box-shadow: 0 0 0 transparent;
+      transition: box-shadow 0.2s;
+      cursor: pointer;
+
+      &:hover, &:active {
+        box-shadow: 0 0 5px $green;
+      }
+
+      &.pagination-item--active {
+        background-color: $green;
+      }
+
+      &.pagination-item--hidden {
+        visibility: hidden;
+        cursor: none;
+      }
+
+      &.pagination-item--sides {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+}

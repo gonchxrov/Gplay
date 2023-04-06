@@ -10,26 +10,42 @@ class Game {
           description,
           price,
           photo,
-          releaseDate
+          releaseDate,
         },
-      })
+      });
 
-      return game
+      return game;
     } catch (error) {
-      let errorMessage = error?.message || 'Undefined error'
-      return errorMessage
+      let errorMessage = error?.message || "Undefined error";
+      return errorMessage;
     }
   }
 
+  async getCount() {
+    const count = await prisma.game.count();
+    return count;
+  }
+
   async getAll() {
-    const games = await prisma.game.findMany()
-    return games
+    const games = await prisma.game.findMany();
+    return games;
+  }
+
+  async getAllByPage(page) {
+    const limit = 10;
+    const offset = page * limit - limit;
+    const games = await prisma.game.findMany({
+      skip: offset,
+      take: limit,
+    });
+
+    return games;
   }
 
   async getOne(id) {
-    const game = await prisma.game.findUnique({ where: {id} })
-    return game
+    const game = await prisma.game.findUnique({ where: { id } });
+    return game;
   }
 }
 
-module.exports = new Game()
+module.exports = new Game();
