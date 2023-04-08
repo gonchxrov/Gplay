@@ -62,24 +62,40 @@ export function Footer() {
               <h2>Partners</h2>
               <ul className="navbar-nav ps-1">
                 <li className="nav-item">
-                  <Link className="nav-link" to={ROUTE.HOME}>
+                  <a
+                    className="nav-link"
+                    href="https://store.steampowered.com"
+                    target="_black"
+                  >
                     Steam
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={ROUTE.HOME}>
+                  <a
+                    className="nav-link"
+                    href="https://www.epicgames.com/site/en-US/home"
+                    target="_black"
+                  >
                     Epic Games
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={ROUTE.HOME}>
-                    Origin
-                  </Link>
+                  <a
+                    className="nav-link"
+                    href="https://ubisoftconnect.com/en-US/"
+                    target="_black"
+                  >
+                    Ubisoft Connect
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={ROUTE.HOME}>
-                    Uplay
-                  </Link>
+                  <a
+                    className="nav-link"
+                    href="https://www.ea.com"
+                    target="_black"
+                  >
+                    EA
+                  </a>
                 </li>
               </ul>
             </div>
