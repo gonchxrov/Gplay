@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
+import { Modal } from "../../components/Modal/Modal";
 import {
   unSetCart,
   removeFromCart,
@@ -19,6 +20,7 @@ import "./Cart.scss";
 
 const Cart = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const cart = useSelector(selectCart);
   const user = useSelector(selectUser);
@@ -83,6 +85,14 @@ const Cart = () => {
     <Layout isLoaded={isLoaded}>
       <h1>Cart</h1>
       <section className="section--cart">
+        {openModal && (
+          <Modal closeModal={() => setOpenModal(false)}>
+            <h4>Are you sure you want to make a purchase?</h4>
+            <button onClick={buy} type="button" className="btn btn--green">
+              Buy
+            </button>
+          </Modal>
+        )}
         {cart.length > 0 ? (
           <div>
             <ul className="cart-list">
@@ -135,7 +145,11 @@ const Cart = () => {
                 <p className="text">Total: </p>
                 <b>{totalPrice} €</b>
               </div>
-              <button onClick={buy} type="button" className="btn btn--green">
+              <button
+                onClick={() => setOpenModal(true)}
+                type="button"
+                className="btn btn--green"
+              >
                 Proceed to checkout
               </button>
             </div>
