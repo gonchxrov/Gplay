@@ -15,6 +15,11 @@ export const fetchGamesByPage = async (page) => {
   return data;
 };
 
+export const fetchGamesByKeyword = async (keyword) => {
+  const { data } = await $host.get(`api/game/search/${keyword}`);
+  return data;
+};
+
 export const fetchCountOfGames = async () => {
   const { data } = await $host.get("api/game?count=1");
   return data;

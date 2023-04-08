@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { fetchCountOfGames, fetchGamesByPage } from "../../http/GameAPI";
 import { GameList } from "../../components/GameList/GameList";
 import { Layout } from "../../components/Layout/Layout";
+
 import "./Catalog.scss";
 
 const Catalog = () => {
-  const [totalCount, setTotalCount] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [games, setGames] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [activePage, setActivePage] = useState(1);

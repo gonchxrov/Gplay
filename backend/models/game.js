@@ -46,6 +46,19 @@ class Game {
     const game = await prisma.game.findUnique({ where: { id } });
     return game;
   }
+
+  async search(value) {
+    const games = await prisma.game.findMany({
+      where: {
+        title: {
+          contains: value,
+          mode: "insensitive",
+        },
+      },
+    });
+
+    return games;
+  }
 }
 
 module.exports = new Game();

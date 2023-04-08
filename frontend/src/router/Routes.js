@@ -6,6 +6,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import Game from "../pages/Game/Game";
 import Cart from "../pages/Cart/Cart";
 import Purchases from "../pages/Purchases/Purchases";
+import Search from "../pages/Search/Search";
 
 export const ROUTE = {
   HOME: "/",
@@ -16,6 +17,7 @@ export const ROUTE = {
   GAME: "/game",
   CART: "/cart",
   PURCHASES: "/purchases",
+  SEARCH: "/search",
 };
 
 export const publicRoutes = [
@@ -34,6 +36,10 @@ export const publicRoutes = [
   {
     path: ROUTE.CATALOG,
     element: <Catalog />,
+  },
+  {
+    path: `${ROUTE.SEARCH}/:keyword`,
+    element: <Search />,
   },
   {
     path: `${ROUTE.GAME}/:id`,

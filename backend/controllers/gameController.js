@@ -55,6 +55,17 @@ class GameController {
       next(ApiError.badRequest(e.message));
     }
   }
+
+  async search(req, res, next) {
+    try {
+      const value = req.params?.value || "";
+      const games = await Game.search(value);
+
+      return res.json(games);
+    } catch (e) {
+      next(ApiError.badRequest(e.message));
+    }
+  }
 }
 
 module.exports = new GameController();
