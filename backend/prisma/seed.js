@@ -169,9 +169,83 @@ async function createGames() {
   }
 }
 
+async function createCategories() {
+  try {
+    const categories = await prisma.category.createMany({
+      data: [
+        {
+          title: `Singleplayer`,
+          photo: `singleplayer.jpg`,
+        },
+        {
+          title: `Multiplayer`,
+          photo: `multiplayer.jpg`,
+        },
+        {
+          title: `Co-op`,
+          photo: `coop.jpg`,
+        },
+        {
+          title: `Controller`,
+          photo: `controller.jpg`,
+        },
+        {
+          title: `Horror`,
+          photo: `horror.jpg`,
+        },
+      ],
+      skipDuplicates: true,
+    });
+
+    let count = categories?.count || 0;
+    console.log("Creted categories:", count);
+  } catch (error) {
+    let errorMessage = error?.message || "Undefined error";
+    console.error("failed to create users:", errorMessage);
+  }
+}
+
+async function createGenres() {
+  try {
+    const genres = await prisma.genre.createMany({
+      data: [
+        {
+          title: `Action`,
+          photo: `action.jpg`,
+        },
+        {
+          title: `Adventure`,
+          photo: `adventure.jpg`,
+        },
+        {
+          title: `Hack and Slash`,
+          photo: `hack_and_slash.jpg`,
+        },
+        {
+          title: `Shooter`,
+          photo: `shooter.jpg`,
+        },
+        {
+          title: `Stealth`,
+          photo: `stealth.jpg`,
+        },
+      ],
+      skipDuplicates: true,
+    });
+
+    let count = genres?.count || 0;
+    console.log("Creted genres:", count);
+  } catch (error) {
+    let errorMessage = error?.message || "Undefined error";
+    console.error("failed to create users:", errorMessage);
+  }
+}
+
 async function main() {
   await createUsers();
   await createGames();
+  await createCategories();
+  await createGenres();
 }
 
 main()
