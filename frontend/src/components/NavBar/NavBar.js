@@ -79,13 +79,13 @@ export function NavBar() {
             <li className="nav-item">
               <Link
                 className="nav-link nav-link--categories"
-                to={ROUTE.CATALOG}
+                to={ROUTE.CATEGORY}
               >
                 <i className="fas fa-th"></i>Categories
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link nav-link--genres" to={ROUTE.CATALOG}>
+              <Link className="nav-link nav-link--genres" to={ROUTE.GENRE}>
                 <i className="fas fa-th-large"></i>Genres
               </Link>
             </li>

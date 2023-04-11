@@ -4,6 +4,7 @@ import Catalog from "../pages/Catalog/Catalog";
 import Login from "../pages/Login/Login";
 import SignIn from "../pages/SignIn/SignIn";
 import Game from "../pages/Game/Game";
+import Category from "../pages/Category/Category";
 import Cart from "../pages/Cart/Cart";
 import Purchases from "../pages/Purchases/Purchases";
 import Search from "../pages/Search/Search";
@@ -15,6 +16,8 @@ export const ROUTE = {
   PROFILE: "/profile",
   CATALOG: "/catalog",
   GAME: "/game",
+  CATEGORY: "/category",
+  GENRE: "/genre",
   CART: "/cart",
   PURCHASES: "/purchases",
   SEARCH: "/search",
@@ -44,6 +47,14 @@ export const publicRoutes = [
   {
     path: `${ROUTE.GAME}/:id`,
     element: <Game />,
+  },
+  {
+    path: `${ROUTE.CATEGORY}`,
+    element: <Category />,
+  },
+  {
+    path: `${ROUTE.CATEGORY}/:id`,
+    element: <Catalog />,
   },
 ];
 
