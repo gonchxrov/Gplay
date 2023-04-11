@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import SignIn from "../pages/SignIn/SignIn";
 import Game from "../pages/Game/Game";
 import Category from "../pages/Category/Category";
+import Genre from "../pages/Genre/Genre";
 import Cart from "../pages/Cart/Cart";
 import Purchases from "../pages/Purchases/Purchases";
 import Search from "../pages/Search/Search";
@@ -54,6 +55,14 @@ export const publicRoutes = [
   },
   {
     path: `${ROUTE.CATEGORY}/:id`,
+    element: <Catalog />,
+  },
+  {
+    path: `${ROUTE.GENRE}`,
+    element: <Genre />,
+  },
+  {
+    path: `${ROUTE.GENRE}/:id`,
     element: <Catalog />,
   },
 ];
