@@ -31,6 +31,46 @@ class Game {
     return games;
   }
 
+  async getAllByCategory(category) {
+    const categoryId = parseInt(category) || 1;
+    const gamesWithCategory = await prisma.game.findMany({
+      include: {
+        category: {
+          where: { categoryId },
+        },
+      },
+    });
+
+    const games = gamesWithCategory.filter((game) => {
+      if (game.category.length) {
+        delete game.category;
+        return true;
+      }
+    });
+
+    return games;
+  }
+
+  async getAllByGenre(genre) {
+    const genreId = parseInt(genre) || 1;
+    const gamesWithGenres = await prisma.game.findMany({
+      include: {
+        genre: {
+          where: { genreId },
+        },
+      },
+    });
+
+    const games = gamesWithGenres.filter((game) => {
+      if (game.genre.length) {
+        delete game.genre;
+        return true;
+      }
+    });
+
+    return games;
+  }
+
   async getAllByPage(page) {
     const limit = 10;
     const offset = page * limit - limit;

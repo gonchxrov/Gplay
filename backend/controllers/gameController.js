@@ -28,12 +28,21 @@ class GameController {
   }
 
   async getAll(req, res) {
-    const page = req.query.page;
-    const count = req.query.count;
+    const { page, count, category, genre } = req.query;
 
     if (count) {
       const count = await Game.getCount();
       return res.json(count);
+    }
+
+    if (category) {
+      const gamesByCategory = await Game.getAllByCategory(category);
+      return res.json(gamesByCategory);
+    }
+
+    if (genre) {
+      const gamesByGenre = await Game.getAllByGenre(genre);
+      return res.json(gamesByGenre);
     }
 
     if (page) {
