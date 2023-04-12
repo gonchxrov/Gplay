@@ -15,6 +15,18 @@ export const fetchGamesByPage = async (page) => {
   return data;
 };
 
+export const fetchGamesByCategory = async (category, page) => {
+  const { data } = await $host.get(
+    `api/game?category=${category}&page=${page}`
+  );
+  return data;
+};
+
+export const fetchGamesByGenre = async (genre, page) => {
+  const { data } = await $host.get(`api/game?genre=${genre}&page=${page}`);
+  return data;
+};
+
 export const fetchGamesByKeyword = async (keyword) => {
   const { data } = await $host.get(`api/game/search/${keyword}`);
   return data;

@@ -1,6 +1,8 @@
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
 import Catalog from "../pages/Catalog/Catalog";
+import CatalogCategory from "../pages/CatalogCategory/CatalogCategory";
+import CatalogGenre from "../pages/CatalogGenre/CatalogGenre";
 import Login from "../pages/Login/Login";
 import SignIn from "../pages/SignIn/SignIn";
 import Game from "../pages/Game/Game";
@@ -55,7 +57,7 @@ export const publicRoutes = [
   },
   {
     path: `${ROUTE.CATEGORY}/:id`,
-    element: <Catalog />,
+    element: <CatalogCategory />,
   },
   {
     path: `${ROUTE.GENRE}`,
@@ -63,7 +65,7 @@ export const publicRoutes = [
   },
   {
     path: `${ROUTE.GENRE}/:id`,
-    element: <Catalog />,
+    element: <CatalogGenre />,
   },
 ];
 

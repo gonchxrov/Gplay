@@ -6,10 +6,10 @@ import { Layout } from "../../components/Layout/Layout";
 import "./Catalog.scss";
 
 const Catalog = () => {
-  const [totalCount, setTotalCount] = useState(0);
   const [games, setGames] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
   const [activePage, setActivePage] = useState(1);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     fetchCountOfGames().then((data) => setTotalCount(data));
@@ -17,13 +17,17 @@ const Catalog = () => {
 
   useEffect(() => {
     fetchGamesByPage(activePage)
-      .then((data) => setGames(data))
+      .then((data) => {
+        setGames(data.games);
+        setTotalCount(data.totalCount);
+      })
       .finally(() => setIsLoaded(true));
-  }, [totalCount]);
+  }, []);
 
   useEffect(() => {
-    fetchGamesByPage(activePage).then((data) => setGames(data));
+    fetchGamesByPage(activePage).then((data) => setGames(data.games));
   }, [activePage]);
+
   return (
     <Layout isLoaded={isLoaded}>
       <section className="section--catalog">
