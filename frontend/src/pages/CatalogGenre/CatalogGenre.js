@@ -23,8 +23,8 @@ const CatalogGenre = () => {
     fetchGenre(params.id).then((data) => {
       setBreadcrumbs([
         {
-          route: ROUTE.CATEGORY,
-          title: "Categories",
+          route: ROUTE.GENRE,
+          title: "Genre",
         },
         {
           route: location.pathname,
