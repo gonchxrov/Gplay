@@ -3,7 +3,12 @@ const prisma = new PrismaClient();
 
 class Category {
   async getAll() {
-    const category = await prisma.category.findMany();
+    const categories = await prisma.category.findMany();
+    return categories;
+  }
+
+  async getOne(id) {
+    const category = await prisma.category.findUnique({ where: { id } });
     return category;
   }
 }

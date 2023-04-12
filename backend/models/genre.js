@@ -6,6 +6,11 @@ class Genre {
     const genres = await prisma.genre.findMany();
     return genres;
   }
+
+  async getOne(id) {
+    const genre = await prisma.genre.findUnique({ where: { id } });
+    return genre;
+  }
 }
 
 module.exports = new Genre();

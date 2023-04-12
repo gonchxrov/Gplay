@@ -29,24 +29,29 @@ class GameController {
 
   async getAll(req, res) {
     const { page, count, category, genre } = req.query;
+    const limit = req.query?.limit || 10;
 
     if (count) {
       const count = await Game.getCount();
       return res.json(count);
     }
 
-    if (category) {
-      const gamesByCategory = await Game.getAllByCategory(category);
+    if (category && page) {
+      const gamesByCategory = await Game.getAllByCategory(
+        category,
+        page,
+        limit
+      );
       return res.json(gamesByCategory);
     }
 
-    if (genre) {
-      const gamesByGenre = await Game.getAllByGenre(genre);
+    if (genre && page) {
+      const gamesByGenre = await Game.getAllByGenre(genre, page, limit);
       return res.json(gamesByGenre);
     }
 
     if (page) {
-      const games = await Game.getAllByPage(page);
+      const games = await Game.getAllByPage(page, limit);
       return res.json(games);
     }
 

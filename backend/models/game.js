@@ -31,9 +31,13 @@ class Game {
     return games;
   }
 
-  async getAllByCategory(category) {
-    const categoryId = parseInt(category) || 1;
+  async getAllByCategory(genre, page, limit) {
+    const categoryId = parseInt(genre) || 1;
+    const offset = page * limit - limit;
+    const totalCount = await prisma.game.count();
     const gamesWithCategory = await prisma.game.findMany({
+      skip: offset,
+      take: limit,
       include: {
         category: {
           where: { categoryId },
@@ -48,12 +52,16 @@ class Game {
       }
     });
 
-    return games;
+    return { games, totalCount };
   }
 
-  async getAllByGenre(genre) {
+  async getAllByGenre(genre, page, limit) {
     const genreId = parseInt(genre) || 1;
+    const offset = page * limit - limit;
+    const totalCount = await prisma.game.count();
     const gamesWithGenres = await prisma.game.findMany({
+      skip: offset,
+      take: limit,
       include: {
         genre: {
           where: { genreId },
@@ -68,18 +76,18 @@ class Game {
       }
     });
 
-    return games;
+    return { games, totalCount };
   }
 
-  async getAllByPage(page) {
-    const limit = 10;
+  async getAllByPage(page, limit) {
     const offset = page * limit - limit;
+    const totalCount = await prisma.game.count();
     const games = await prisma.game.findMany({
       skip: offset,
       take: limit,
     });
 
-    return games;
+    return { games, totalCount };
   }
 
   async getOne(id) {
