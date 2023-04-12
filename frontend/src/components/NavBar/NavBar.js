@@ -32,15 +32,19 @@ export function NavBar() {
   };
 
   const handleClickOutside = (event) => {
-    const clickedOnDropdown =
-      event.target.parentNode.classList.contains("dropdown-toggle") ||
-      event.target.parentNode.classList.contains("dropdown");
+    try {
+      const clickedOnDropdown =
+        event.target.parentNode.classList.contains("dropdown-toggle") ||
+        event.target.parentNode.classList.contains("dropdown");
 
-    if (
-      ref.current &&
-      !ref.current.contains(event.target) &&
-      !clickedOnDropdown
-    ) {
+      if (
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        !clickedOnDropdown
+      ) {
+        setShowDropdown(false);
+      }
+    } catch (error) {
       setShowDropdown(false);
     }
   };
