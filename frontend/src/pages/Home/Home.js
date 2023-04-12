@@ -13,13 +13,13 @@ const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetchGames().then((data) => setGames(data));
-    setIsLoaded(true);
+    fetchGames()
+      .then((data) => {
+        setGames(data);
+        setGamesShowcase(data.filter((game) => game.showcase));
+      })
+      .finally(() => setIsLoaded(true));
   }, []);
-
-  useEffect(() => {
-    setGamesShowcase(games.filter((game) => game.showcase));
-  }, [games]);
 
   return (
     <Layout isLoaded={isLoaded}>
