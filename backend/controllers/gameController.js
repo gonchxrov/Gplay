@@ -27,36 +27,40 @@ class GameController {
     }
   }
 
-  async getAll(req, res) {
-    const { page, count, category, genre } = req.query;
-    const limit = req.query?.limit || 10;
+  async getAll(req, res, next) {
+    try {
+      const { page, count, category, genre } = req.query;
+      const limit = parseInt(req.query?.limit || 10);
 
-    if (count) {
-      const count = await Game.getCount();
-      return res.json(count);
-    }
+      if (count) {
+        const count = await Game.getCount();
+        return res.json(count);
+      }
 
-    if (category && page) {
-      const gamesByCategory = await Game.getAllByCategory(
-        category,
-        page,
-        limit
-      );
-      return res.json(gamesByCategory);
-    }
+      if (category && page) {
+        const gamesByCategory = await Game.getAllByCategory(
+          category,
+          page,
+          limit
+        );
+        return res.json(gamesByCategory);
+      }
 
-    if (genre && page) {
-      const gamesByGenre = await Game.getAllByGenre(genre, page, limit);
-      return res.json(gamesByGenre);
-    }
+      if (genre && page) {
+        const gamesByGenre = await Game.getAllByGenre(genre, page, limit);
+        return res.json(gamesByGenre);
+      }
 
-    if (page) {
-      const games = await Game.getAllByPage(page, limit);
+      if (page) {
+        const games = await Game.getAllByPage(page, limit);
+        return res.json(games);
+      }
+
+      const games = await Game.getAll();
       return res.json(games);
+    } catch (e) {
+      next(ApiError.badRequest(e.message));
     }
-
-    const games = await Game.getAll();
-    return res.json(games);
   }
 
   async getOne(req, res, next) {
