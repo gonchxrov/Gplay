@@ -31,26 +31,26 @@ class Game {
     return games;
   }
 
-  async getAllByCategory(genre, page, limit) {
-    const categoryId = parseInt(genre) || 1;
+  async getAllByCategory(category, page, limit) {
+    const categoryId = parseInt(category) || 1;
     const offset = page * limit - limit;
-    const totalCount = await prisma.game.count();
-    const gamesWithCategory = await prisma.game.findMany({
+
+    const totalCount = await prisma.categoryOnGame.count({
+      where: { categoryId },
+    });
+
+    const gamesWithCategory = await prisma.categoryOnGame.findMany({
       skip: offset,
       take: limit,
+      where: { categoryId },
       include: {
-        category: {
-          where: { categoryId },
-        },
+        game: true,
       },
     });
 
-    const games = gamesWithCategory.filter((game) => {
-      if (game.category.length) {
-        delete game.category;
-        return true;
-      }
-    });
+    const games = gamesWithCategory.map(
+      (gameWithCategory) => gameWithCategory.game
+    );
 
     return { games, totalCount };
   }
@@ -58,23 +58,21 @@ class Game {
   async getAllByGenre(genre, page, limit) {
     const genreId = parseInt(genre) || 1;
     const offset = page * limit - limit;
-    const totalCount = await prisma.game.count();
-    const gamesWithGenres = await prisma.game.findMany({
+
+    const totalCount = await prisma.genreOnGame.count({
+      where: { genreId },
+    });
+
+    const gamesWithGenres = await prisma.genreOnGame.findMany({
       skip: offset,
       take: limit,
+      where: { genreId },
       include: {
-        genre: {
-          where: { genreId },
-        },
+        game: true,
       },
     });
 
-    const games = gamesWithGenres.filter((game) => {
-      if (game.genre.length) {
-        delete game.genre;
-        return true;
-      }
-    });
+    const games = gamesWithGenres.map((gameWithGenres) => gameWithGenres.game);
 
     return { games, totalCount };
   }
