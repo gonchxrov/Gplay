@@ -80,8 +80,96 @@ const categoriesOnGames = [
     categoryId: 1,
   },
   {
-    gameId: 10,
+    gameId: 11,
+    categoryId: 1,
+  },
+  {
+    gameId: 11,
     categoryId: 5,
+  },
+  {
+    gameId: 12,
+    categoryId: 1,
+  },
+  {
+    gameId: 12,
+    categoryId: 4,
+  },
+  {
+    gameId: 13,
+    categoryId: 1,
+  },
+  {
+    gameId: 13,
+    categoryId: 4,
+  },
+  {
+    gameId: 14,
+    categoryId: 1,
+  },
+  {
+    gameId: 14,
+    categoryId: 3,
+  },
+  {
+    gameId: 14,
+    categoryId: 4,
+  },
+  {
+    gameId: 15,
+    categoryId: 1,
+  },
+  {
+    gameId: 15,
+    categoryId: 4,
+  },
+  {
+    gameId: 16,
+    categoryId: 1,
+  },
+  {
+    gameId: 16,
+    categoryId: 5,
+  },
+  {
+    gameId: 17,
+    categoryId: 1,
+  },
+  {
+    gameId: 17,
+    categoryId: 5,
+  },
+  {
+    gameId: 18,
+    categoryId: 1,
+  },
+  {
+    gameId: 18,
+    categoryId: 2,
+  },
+  {
+    gameId: 18,
+    categoryId: 3,
+  },
+  {
+    gameId: 19,
+    categoryId: 1,
+  },
+  {
+    gameId: 19,
+    categoryId: 2,
+  },
+  {
+    gameId: 19,
+    categoryId: 3,
+  },
+  {
+    gameId: 20,
+    categoryId: 1,
+  },
+  {
+    gameId: 20,
+    categoryId: 4,
   },
 ];
 

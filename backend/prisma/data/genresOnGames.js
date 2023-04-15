@@ -100,8 +100,108 @@ const genresOnGames = [
     genreId: 2,
   },
   {
-    gameId: 10,
+    gameId: 11,
+    genreId: 1,
+  },
+  {
+    gameId: 11,
+    genreId: 2,
+  },
+  {
+    gameId: 11,
     genreId: 4,
+  },
+  {
+    gameId: 12,
+    genreId: 1,
+  },
+  {
+    gameId: 13,
+    genreId: 1,
+  },
+  {
+    gameId: 13,
+    genreId: 2,
+  },
+  {
+    gameId: 13,
+    genreId: 4,
+  },
+  {
+    gameId: 14,
+    genreId: 1,
+  },
+  {
+    gameId: 14,
+    genreId: 2,
+  },
+  {
+    gameId: 14,
+    genreId: 3,
+  },
+  {
+    gameId: 15,
+    genreId: 1,
+  },
+  {
+    gameId: 15,
+    genreId: 2,
+  },
+  {
+    gameId: 15,
+    genreId: 3,
+  },
+  {
+    gameId: 16,
+    genreId: 1,
+  },
+  {
+    gameId: 16,
+    genreId: 2,
+  },
+  {
+    gameId: 17,
+    genreId: 1,
+  },
+  {
+    gameId: 17,
+    genreId: 2,
+  },
+  {
+    gameId: 18,
+    genreId: 1,
+  },
+  {
+    gameId: 18,
+    genreId: 2,
+  },
+  {
+    gameId: 18,
+    genreId: 4,
+  },
+  {
+    gameId: 19,
+    genreId: 1,
+  },
+  {
+    gameId: 19,
+    genreId: 2,
+  },
+  {
+    gameId: 19,
+    genreId: 4,
+  },
+  {
+    gameId: 20,
+    genreId: 1,
+  },
+  {
+    gameId: 20,
+    genreId: 2,
+  },
+  {
+    gameId: 19,
+    genreId: 5,
   },
 ];
 

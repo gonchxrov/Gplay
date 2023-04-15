@@ -122,6 +122,18 @@ const games = [
   },
   {
     id: 10,
+    title: `Grand Theft Auto: Vice City`,
+    description: `Grand Theft Auto: Vice City is a 2002 action-adventure game developed by Rockstar North and published by Rockstar Games. 
+    It is the fourth main entry in the Grand Theft Auto series, following 2001's Grand Theft Auto III, and the sixth instalment overall. Set in 
+    1986 within the fictional Vice City (based on Miami and Miami Beach), the single-player story follows mobster Tommy Vercetti's rise to power 
+    after being released from prison and becoming caught up in an ambushed drug deal. While seeking out those responsible, he slowly builds a 
+    criminalempire by seizing power from other criminal organisations in the city.`,
+    price: 10,
+    photo: `gta_vc.jpg`,
+    releaseDate: new Date("2002-10-29"),
+  },
+  {
+    id: 11,
     title: `Metro 2033`,
     description: `Metro 2033 is a 2010 first-person shooter survival horror video game developed by 4A Games and published by THQ. The story is 
     based on Dmitry Glukhovsky's novel of the same name, where survivors of a nuclear war have taken refuge in the Metro tunnels of Moscow. Players 
@@ -131,6 +143,111 @@ const games = [
     price: 10,
     photo: `metro_2033.jpg`,
     releaseDate: new Date("2010-03-16"),
+  },
+  {
+    id: 12,
+    title: `Tekken 3`,
+    description: `Tekken 3 (鉄拳3) is a fighting game, the third entry in the Tekken series. It was released to the arcades in 1997, before being 
+    ported to the PlayStation in 1998. The arcade version of the game was released in 2005 for the PlayStation 2 as part of Tekken 5's Arcade History 
+    mode. The game was also re-released as part of Sony's PlayStation Classic.`,
+    price: 5,
+    photo: `tekken_3.jpg`,
+    releaseDate: new Date("1997-03-20"),
+  },
+  {
+    id: 13,
+    title: `Far Cry 3`,
+    description: `Far Cry 3 is a 2012 first-person shooter game developed by Ubisoft Montreal and published by Ubisoft. It is the third main installment 
+    in the Far Cry series after Far Cry 2. The game takes place on the fictional Rook Islands, a tropical archipelago which can be freely explored by 
+    players. Gameplay focuses on combat and exploration. Players can use a variety of weapons to defeat human enemies and hostile wildlife, and the game 
+    features elements found in role-playing games such as skill trees and experience. After a vacation goes awry, protagonist Jason Brody must save his 
+    friends, who have been kidnapped by pirates, and escape from the island and its unhinged inhabitants.`,
+    price: 15,
+    photo: `far_cry_3.jpg`,
+    releaseDate: new Date("2012-11-29"),
+  },
+  {
+    id: 14,
+    title: `Devil May Cry 5`,
+    description: `Devil May Cry 5 is a 2019 action-adventure game developed and published by Capcom. It is the sixth installment overall and the fifth 
+    mainline installment in the Devil May Cry series. Capcom released it for PlayStation 4, Windows, and Xbox One on 8 March 2019. The game takes place 
+    five years after Devil May Cry 4 and follows a trio of warriors with demonic powers, the returning Dante, Nero, and a new protagonist named V, as 
+    they attempt to stop the Demon King Urizen from destroying the human world. Across their journey in Red Grave City, the player can use these 
+    characters in different missions. Each of them has their own way of fighting and becoming stronger. As this happens, the mystery behind V is 
+    revealed, along with his connection with Urizen.`,
+    price: 30,
+    photo: `dmc_5.jpg`,
+    releaseDate: new Date("2019-03-08"),
+  },
+  {
+    id: 15,
+    title: `Devil May Cry`,
+    description: `Devil May Cry is a 2001 action-adventure game developed and published by Capcom. Released from August to December, originally for 
+    the PlayStation 2, it is the first installment in the Devil May Cry series. Set in modern times on the fictional Mallet Island, the story centers 
+    on Dante, a demon hunter who uses his business to carry out a lifelong vendetta against all demons. He meets a woman named Trish who takes him on 
+    a journey to defeat the demon lord Mundus, who is responsible for the deaths of Dante's brother and mother. The story is told primarily through 
+    a mixture of cutscenes, which use the game engine and several pre-rendered full motion videos. The game is very loosely based on the Italian poem 
+    Divine Comedy by the use of allusions, including the game's protagonist Dante (named after Dante Alighieri) and other characters like Trish 
+    (Beatrice Portinari) and Vergil (Virgil).`,
+    price: 10,
+    photo: `dmc.jpg`,
+    releaseDate: new Date("2001-08-23"),
+  },
+  {
+    id: 16,
+    title: `Resident Evil`,
+    description: `Resident Evil is a survival horror video game developed by Capcom Production Studio 4 and published by Capcom. Released for the 
+    GameCube video game console in 2002, it is a remake of the 1996 PlayStation game Resident Evil, the first installment in the Resident Evil video game 
+    series. The story takes place in 1998 near the fictional Midwestern town of Raccoon City where a series of bizarre murders have taken place. 
+    The player takes on the role of either Chris Redfield or Jill Valentine, S.T.A.R.S. agents sent in by the city to investigate the murders.`,
+    price: 15,
+    photo: `re.jpg`,
+    releaseDate: new Date("2002-03-22"),
+  },
+  {
+    id: 17,
+    title: `Resident Evil 4`,
+    description: `Resident Evil 4 is a 2023 survival horror game developed and published by Capcom. It is a remake of the 2005 game Resident Evil 4. 
+    Players control the US agent Leon S. Kennedy, who must save Ashley Graham, the daughter of the United States president, from the mysterious 
+    Los Iluminados cult. The remake builds upon the original game with an updated plot, new visuals, characters, cast, and improved gameplay. 
+    Resident Evil 4 was announced in June 2022 and released on PlayStation 4, PlayStation 5, Windows, and Xbox Series X/S on March 24, 2023. It received 
+    acclaim and sold four million copies in its first two weeks, making it one of the fastest-selling Resident Evil games.`,
+    price: 40,
+    photo: `re_4.jpg`,
+    releaseDate: new Date("2023-03-24"),
+  },
+  {
+    id: 18,
+    title: `Call of Duty: Modern Warfare`,
+    description: `Call of Duty: Modern Warfare is a 2007 first-person shooter video game developed by Infinity Ward and published by Activision. It is 
+    the fourth main installment in the Call of Duty series. The game breaks away from the World War II setting of previous entries and is instead set in 
+    modern times. Developed for over two years, Modern Warfare was released in November 2007 for the PlayStation 3, Xbox 360 and Microsoft Windows, and 
+    was ported to the Wii as Call of Duty: Modern Warfare - Reflex Edition in 2009.`,
+    price: 15,
+    photo: `cod_mw.jpg`,
+    releaseDate: new Date("2007-11-05"),
+  },
+  {
+    id: 19,
+    title: `Call of Duty: Modern Warfare 2`,
+    description: `Call of Duty: Modern Warfare 2 is a 2009 first-person shooter game developed by Infinity Ward and published by Activision. It is the 
+    sixth installment in the Call of Duty series and the direct sequel to Call of Duty 4: Modern Warfare. It was released worldwide on November 10, 2009, 
+    for Microsoft Windows, the PlayStation 3, and Xbox 360. A separate version for the Nintendo DS, titled Modern Warfare: Mobilized, was also released on 
+    the same day. A version for macOS was developed by Aspyr and released in May 2014, and the Xbox 360 version was made backward compatible for the 
+    Xbox One in 2018.`,
+    price: 20,
+    photo: `cod_mw_2.jpg`,
+    releaseDate: new Date("2009-11-10"),
+  },
+  {
+    id: 20,
+    title: `Assassin's Creed II`,
+    description: `Assassin's Creed II is a 2009 action-adventure video game developed by Ubisoft Montréal and published by Ubisoft. It is the second 
+    major installment in the Assassin's Creed series, and the sequel to 2007's Assassin's Creed. The game was first released on the PlayStation 3 and 
+    Xbox 360 in November 2009, and was later made available on Microsoft Windows in March 2010 and OS X in October 2010.`,
+    price: 20,
+    photo: `ac_2.jpg`,
+    releaseDate: new Date("2016-11-15"),
   },
 ];
 
